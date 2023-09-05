@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+    <title>new post page</title>
+</head>
+<body>
+     <!-- headerstart -->
+ <ul class="nav nav-pills">
+    <li class="nav-item">      <a class="nav-link active" aria-current="page" href="/">Home</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/create-new-post">Create post</a>
+    </li>
+  </ul>
+  <!-- headerstart -->
+
+   <form action="/submit-new-post" method="post">
+    <input type="text" name="title" placeholder="Title">
+    <input type="text" name="desc" placeholder="Description">
+    <button class="btn btn-success">add new post</button>
+
+</form> 
+<% if(err) { %>
+<p><%= err %></p>
+<% } %>
+</body>
+</html>

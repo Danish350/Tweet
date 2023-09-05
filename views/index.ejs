@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title>Twitter Challenge</title>
+    
+</head>
+<body>
+    <h1>Challenge of backend</h1>
+
+  <ul class="nav nav-pills">
+    <li class="nav-item">
+      <a class="nav-link active" aria-current="page" href="/twitter">Main Menu</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" href="/create-new-post">Post Twitter</a>
+    </li>
+  </ul>
+
+   <% if(post.length > 0) { %>
+    <% post.forEach(post =>  { %>
+        <div class="card"  style="width: 18rem;">
+            <div class="card-body">
+               
+                
+                <a href=""></a>
+                <button>
+
+                    <a href="/edit-post/<%= post._id%>">Edit post </a>
+                </button>
+                    
+                <h1><%= post.title %></h1>
+                <h4><%= post.desc %></h4>
+            </div>
+        </div>
+        <div>
+            <form method="post" action="/add-comment/<%= post._id %>">
+                <input name="comment" placeholder="comments">
+                <button class="btn btn-secondary"> Add comment</button>
+            </form>
+        </div>
+        <div>
+            <% if(post.comments.length > 0) { %>
+                <% post.comments.forEach(comment => { %>
+                    <div>
+                        <h5>
+                            <%= comment.comment %>
+                            <button>
+                                    <a href="/delete-comment/<%= comment._id %>">Delete</a>
+                            </button>
+                        </h5>
+                       
+                    </div>
+                    <% }) %>
+                    <% } %>
+        </div>
+        <% }) %>
+   <% } else { %>
+    <p>no post here for now</p>
+   <% } %>
+</body>
+</html>
